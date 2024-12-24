@@ -1,84 +1,59 @@
-/* Tổng thể */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #001d3d;
-  color: #fff;
-  overflow: hidden;
-}
+body {  
+    background-color: #f0f8ff;  
+    font-family: 'Arial', sans-serif;  
+    text-align: center;  
+    overflow: hidden; /* Tránh cuộn trang khi có nhiều hiệu ứng */  
+}  
 
-/* Hình nền */
-.background img {
-  position: absolute;
-  width: 150px;
-}
+h1 {  
+    color: #2f4f4f;  
+}  
 
-.reindeer {
-  top: 20px;
-  left: 10%;
-  animation: float 5s infinite ease-in-out;
-}
+#username {  
+    padding: 10px;  
+    margin: 10px 0;  
+    border: 2px solid #008b8b;  
+    border-radius: 5px;  
+}  
 
-.santa {
-  bottom: 20px;
-  right: 10%;
-  animation: float 5s infinite ease-in-out reverse;
-}
+button {  
+    padding: 10px 20px;  
+    background-color: #008b8b;  
+    color: white;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+}  
 
-/* Lời chúc */
-.container {
-  text-align: center;
-  margin-top: 10%;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
-}
+button:hover {  
+    background-color: #005757;  
+}  
 
-input {
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
-}
+.hidden {  
+    display: none;  
+}  
 
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background: #ff6f61;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
+#snowflakes {  
+    position: absolute;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    pointer-events: none; /* Không cho phép tương tác với lớp tuyết */  
+}  
 
-button:hover {
-  background: #ff4b3a;
-}
+.snowflake {  
+    position: absolute;  
+    top: -10px;  
+    color: #ffffff;  
+    font-size: 1em;  
+    z-index: 9999;  
+    opacity: 0.8;  
+    animation: fall linear infinite;   
+}  
 
-.hidden {
-  display: none;
-}
-
-/* Hiệu ứng tuyết */
-.snow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: url('images/snowflake.png') repeat;
-  animation: snow-fall 10s linear infinite;
-}
-
-@keyframes snow-fall {
-  0% { background-position: 0 -100%; }
-  100% { background-position: 0 100%; }
-}
-
-/* Hiệu ứng bay lượn */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+@keyframes fall {  
+    to {  
+        transform: translateY(100vh);   
+    }  
 }
