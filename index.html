@@ -7,22 +7,29 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="snow"></div>
-  <div class="container">
-    <div id="step1" class="step">
-      <h1>Chào mừng đến với Lời chúc Giáng sinh!</h1>
-      <p>Nhập tên của bạn để nhận lời chúc:</p>
-      <input type="text" id="username" placeholder="Nhập tên của bạn" required>
-      <button onclick="showGreeting()">Nhận lời chúc</button>
-    </div>
+  <!-- Hình nền -->
+  <div class="background">
+    <img src="images/reindeer.png" alt="Tuần lộc" class="reindeer">
+    <img src="images/santa.png" alt="Ông già Noel" class="santa">
+  </div>
 
-    <div id="step2" class="step hidden">
-      <h1>🎄 Chúc Mừng Giáng Sinh! 🎄</h1>
-      <img src="santa.png" alt="Ông già Noel" class="santa">
-      <p id="greeting"></p>
+  <!-- Lời chúc -->
+  <div class="container">
+    <h1>Chúc Mừng Giáng Sinh! 🎄</h1>
+    <p>Nhập tên của bạn để nhận lời chúc:</p>
+    <input type="text" id="username" placeholder="Tên của bạn">
+    <button onclick="showGreeting()">Nhận lời chúc</button>
+
+    <div id="greeting" class="hidden">
+      <h2>🎅 Lời chúc của bạn: </h2>
+      <p id="message"></p>
       <button onclick="restart()">Quay lại</button>
     </div>
   </div>
+
+  <!-- Hiệu ứng tuyết rơi -->
+  <div class="snow"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
