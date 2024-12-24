@@ -1,59 +1,54 @@
-body {  
-    background-color: #f0f8ff;  
-    font-family: 'Arial', sans-serif;  
-    text-align: center;  
-    overflow: hidden; /* Tránh cuộn trang khi có nhiều hiệu ứng */  
+function showGreeting() {  
+    const username = document.getElementById('username').value;  
+    if (username.trim() === "") {  
+        alert("Vui lòng nhập tên của bạn!");  
+        return;  
+    }  
+
+    const greetings = [  
+        `Chúc ${username} một Giáng sinh ấm áp và tràn đầy hạnh phúc! 🎅`,  
+        `${username}, mong bạn có một mùa Giáng sinh tuyệt vời! ❄️`,  
+        `🎄 ${username}, chúc bạn luôn vui vẻ và ngập tràn yêu thương trong dịp Giáng sinh này! 🎁`  
+    ];  
+
+    const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];  
+    document.getElementById('greeting').textContent = randomGreeting;  
+
+    document.getElementById('step1').classList.add('hidden');  
+    document.getElementById('step2').classList.remove('hidden');  
+
+    createSnowflakes(30); // Tạo 30 bông tuyết  
 }  
 
-h1 {  
-    color: #2f4f4f;  
+function restart() {  
+    document.getElementById('username').value = "";  
+    document.getElementById('step2').classList.add('hidden');  
+    document.getElementById('step1').classList.remove('hidden');  
+    document.getElementById('snowflakes').innerHTML = ""; // Xóa bông tuyết  
 }  
 
-#username {  
-    padding: 10px;  
-    margin: 10px 0;  
-    border: 2px solid #008b8b;  
-    border-radius: 5px;  
-}  
+function createSnowflakes(num) {  
+    const snowflakesContainer = document.getElementById('snowflakes');  
+    for (let i = 0; i < num; i++) {  
+        const snowflake = document.createElement('div');  
+        snowflake.className = 'snowflake';  
+        snowflake.innerHTML = '❄️';  
 
-button {  
-    padding: 10px 20px;  
-    background-color: #008b8b;  
-    color: white;  
-    border: none;  
-    border-radius: 5px;  
-    cursor: pointer;  
-}  
+        const leftPosition = Math.random() * 100; // Vị trí trái ngẫu nhiên  
+        snowflake.style.left = leftPosition + 'vw';   
+        snowflake.style.fontSize = Math.random() * 1 + 0.5 + 'em'; // Kích thước ngẫu nhiên  
 
-button:hover {  
-    background-color: #005757;  
-}  
+        snowflakesContainer.appendChild(snowflake);  
 
-.hidden {  
-    display: none;  
-}  
+        // Hiệu ứng rơi tự do  
+        setTimeout(() => {  
+            snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Thay đổi tốc độ rơi  
+            snowflake.style.transform = 'translateY(100vh)';  
+        }, 10);  
 
-#snowflakes {  
-    position: absolute;  
-    top: 0;  
-    left: 0;  
-    right: 0;  
-    bottom: 0;  
-    pointer-events: none; /* Không cho phép tương tác với lớp tuyết */  
-}  
-
-.snowflake {  
-    position: absolute;  
-    top: -10px;  
-    color: #ffffff;  
-    font-size: 1em;  
-    z-index: 9999;  
-    opacity: 0.8;  
-    animation: fall linear infinite;   
-}  
-
-@keyframes fall {  
-    to {  
-        transform: translateY(100vh);   
+        // Sau khi kết thúc hiệu ứng, xóa bông tuyết  
+        snowflake.addEventListener('animationend', () => {  
+            snowflake.remove();  
+        });  
     }  
 }
