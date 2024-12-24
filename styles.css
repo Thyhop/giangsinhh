@@ -1,70 +1,84 @@
+/* Tổng thể */
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
   margin: 0;
-  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  background-color: #001d3d;
   color: #fff;
+  overflow: hidden;
 }
 
+/* Hình nền */
+.background img {
+  position: absolute;
+  width: 150px;
+}
+
+.reindeer {
+  top: 20px;
+  left: 10%;
+  animation: float 5s infinite ease-in-out;
+}
+
+.santa {
+  bottom: 20px;
+  right: 10%;
+  animation: float 5s infinite ease-in-out reverse;
+}
+
+/* Lời chúc */
 .container {
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px 40px;
+  margin-top: 10%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 50px auto;
-  width: 80%;
+  backdrop-filter: blur(5px);
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 button {
-  background: #ff6f61;
-  color: white;
   padding: 10px 20px;
+  font-size: 18px;
+  background: #ff6f61;
   border: none;
+  color: white;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  margin-top: 10px;
 }
 
 button:hover {
   background: #ff4b3a;
 }
 
-input {
-  padding: 10px;
-  width: 80%;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+.hidden {
+  display: none;
 }
 
-/* Hiệu ứng tuyết rơi */
+/* Hiệu ứng tuyết */
 .snow {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  background-image: url('snowflake.png');
-  background-size: 50px 50px;
-  animation: snow 10s linear infinite;
+  pointer-events: none;
+  background: url('images/snowflake.png') repeat;
+  animation: snow-fall 10s linear infinite;
 }
 
-@keyframes snow {
-  0% { background-position: 0 0; }
+@keyframes snow-fall {
+  0% { background-position: 0 -100%; }
   100% { background-position: 0 100%; }
 }
 
-/* Hiệu ứng ông già Noel */
-.santa {
-  max-width: 200px;
-  margin-top: 20px;
-  animation: fly 5s infinite ease-in-out;
-}
-
-@keyframes fly {
-  0%, 100% { transform: translateX(-10px) translateY(0); }
-  50% { transform: translateX(10px) translateY(-20px); }
+/* Hiệu ứng bay lượn */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
