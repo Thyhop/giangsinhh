@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chúc Mừng Giáng Sinh</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <!-- Hình nền -->
-  <div class="background">
-    <img src="images/reindeer.png" alt="Tuần lộc" class="reindeer">
-    <img src="images/santa.png" alt="Ông già Noel" class="santa">
-  </div>
-
-  <!-- Lời chúc -->
-  <div class="container">
-    <h1>Chúc Mừng Giáng Sinh! 🎄</h1>
-    <p>Nhập tên của bạn để nhận lời chúc:</p>
-    <input type="text" id="username" placeholder="Tên của bạn">
-    <button onclick="showGreeting()">Nhận lời chúc</button>
-
-    <div id="greeting" class="hidden">
-      <h2>🎅 Lời chúc của bạn: </h2>
-      <p id="message"></p>
-      <button onclick="restart()">Quay lại</button>
-    </div>
-  </div>
-
-  <!-- Hiệu ứng tuyết rơi -->
-  <div class="snow"></div>
-
-  <script src="script.js"></script>
-</body>
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="styles.css">  
+    <title>Chúc Mừng Giáng Sinh</title>  
+</head>  
+<body>  
+    <div id="container">  
+        <div id="step1">  
+            <h1>Chúc Mừng Giáng Sinh!</h1>  
+            <input type="text" id="username" placeholder="Nhập tên của bạn...">  
+            <button onclick="showGreeting()">Xem Lời Chúc</button>  
+        </div>  
+        <div id="step2" class="hidden">  
+            <h1 id="greeting"></h1>  
+            <button onclick="restart()">Bắt Đầu Lại</button>  
+        </div>  
+        <div id="snowflakes"></div>  
+    </div>  
+    <script src="scripts.js"></script>  
+</body>  
 </html>
