@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc Mừng Giáng Sinh</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div id="step1" class="step">
+      <h1>Chào mừng đến với Lời chúc Giáng sinh!</h1>
+      <p>Nhập tên của bạn để nhận lời chúc:</p>
+      <input type="text" id="username" placeholder="Nhập tên của bạn" required>
+      <button onclick="showGreeting()">Nhận lời chúc</button>
+    </div>
+
+    <div id="step2" class="step hidden">
+      <h1>🎄 Chúc Mừng Giáng Sinh! 🎄</h1>
+      <p id="greeting"></p>
+      <button onclick="restart()">Quay lại</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
